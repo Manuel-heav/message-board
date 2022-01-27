@@ -22,6 +22,16 @@ app.get('/messages', (req,res) => {
     });
 });
 
+
+app.post('/messages', (req,res) => {
+    console.log(req.body);
+    messages.create(req.body).then(message => {
+        res.json(message)
+    }).catch((err) => {
+        res.status(500);
+        res.json(err);
+    })
+})
 const port = process.env.PORT || 1337;
 
 app.listen(port, () => {
