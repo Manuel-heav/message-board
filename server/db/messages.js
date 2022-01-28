@@ -20,6 +20,7 @@ const getAll = () => {
 }
 
 const create = (message) => {
+    if(!message.username) message.username = "Anonymous"
     const result = schema.validate(message);
     if(result.error == null){
         message.created = new Date();

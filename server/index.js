@@ -4,11 +4,12 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const messages = require("./db/messages")
 const app = express();
+const mongoose = require('mongoose');
+
 
 app.use(morgan('common'));
 app.use(cors());
 app.use(bodyParser.json());
-
 
 app.get('/', (req,res) => {
     res.json({
@@ -19,6 +20,7 @@ app.get('/', (req,res) => {
 app.get('/messages', (req,res) => {
     messages.getAll().then((messages) => {
         res.json(messages);
+        console.log(messages)
     });
 });
 
