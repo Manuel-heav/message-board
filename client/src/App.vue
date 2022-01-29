@@ -5,7 +5,7 @@
     <a class="navbar-brand" href="#/">Message Board</a>
   </div>
 </nav>
-    <router-view/>
+    <router-view class="container"/>
   </div>
 </template>
 
